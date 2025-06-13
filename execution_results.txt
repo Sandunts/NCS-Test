@@ -1,0 +1,117 @@
+Enter the size of the grid (e.g. 4 for a 4x4 grid):
+4
+Enter the number of mines to place on the grid (maximum is 35% of the total squares):
+3
+Here is your minefield:
+-	-	-	-
+-	-	-	-
+-	-	-	-
+-	-	-	-
+Select a square to reveal (e.g. A1): D4
+A2
+Oh no, you detonated a mine! Game over.
+
+Process finished with exit code 0
+
+################################################### SUCCESS RESULT ####
+
+/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar=60835:/Applications/IntelliJ IDEA CE.app/Contents/bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /Users/sandun/Documents/Java_test_workspace/GIC-Test/target/classes org.example.Main
+Welcome to Minesweeper!
+Enter the size of the grid (e.g. 4 for a 4x4 grid):
+4
+Enter the number of mines to place on the grid (maximum is 35% of the total squares):
+4
+Here is your minefield:
+-	-	-	-
+-	-	-	-
+-	-	-	-
+-	-	-	-
+Select a square to reveal (e.g. A1): D4
+A1
+Here is your updated minefield:
+1	-	-	-
+-	-	-	-
+-	-	-	-
+-	-	-	-
+Select a square to reveal (e.g. A1): D4
+D1
+Here is your updated minefield:
+1	-	-	-
+-	-	-	-
+-	-	-	-
+2	-	-	-
+Select a square to reveal (e.g. A1): D4
+B3
+Here is your updated minefield:
+1	-	-	-
+-	-	2	-
+-	-	-	-
+2	-	-	-
+Select a square to reveal (e.g. A1): D4
+A2
+Here is your updated minefield:
+1	2	-	-
+-	-	2	-
+-	-	-	-
+2	-	-	-
+Select a square to reveal (e.g. A1): D4
+D4
+Here is your updated minefield:
+1	2	-	-
+-	-	2	-
+-	-	-	-
+2	-	-	0
+Select a square to reveal (e.g. A1): D4
+D3
+Here is your updated minefield:
+1	2	-	-
+-	-	2	-
+-	-	-	-
+2	-	1	0
+Select a square to reveal (e.g. A1): D4
+C4
+Here is your updated minefield:
+1	2	-	-
+-	-	2	-
+-	-	-	0
+2	-	1	0
+Select a square to reveal (e.g. A1): D4
+C3
+Here is your updated minefield:
+1	2	-	-
+-	-	2	-
+-	-	1	0
+2	-	1	0
+Select a square to reveal (e.g. A1): D4
+B4
+Here is your updated minefield:
+1	2	-	-
+-	-	2	1
+-	-	1	0
+2	-	1	0
+Select a square to reveal (e.g. A1): D4
+D2
+Here is your updated minefield:
+1	2	-	-
+-	-	2	1
+-	-	1	0
+2	2	1	0
+Select a square to reveal (e.g. A1): D4
+B2
+Here is your updated minefield:
+1	2	-	-
+-	4	2	1
+-	-	1	0
+2	2	1	0
+Select a square to reveal (e.g. A1): D4
+A4
+Here is your updated minefield:
+1	2	-	1
+-	4	2	1
+-	-	1	0
+2	2	1	0
+Congratulations, you have won the game!
+
+Process finished with exit code 0
+
+
