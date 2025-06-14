@@ -10,16 +10,41 @@ public class MineSweeper {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Minesweeper!");
         System.out.println("Enter the size of the grid (e.g. 4 for a 4x4 grid):");
-        int gridSize = scanner.nextInt();
-        System.out.println("Enter the number of mines to place on the grid (maximum is 35% of the total squares):");
-        int noOfBombs = scanner.nextInt();
+        int gridSize;
+        while (true) {
+            if (scanner.hasNextInt()) {
+                gridSize = scanner.nextInt();
+                if (gridSize > 0 && gridSize <= 26) {
+                    break;
+                } else {
+                    System.out.println("Invalid input. Please enter a number between 1 to 26");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number between 1 to 26");
+                scanner.next();
+            }
+        }
         GridManager gridManager = new GridManager(gridSize);
         gridManager.insertDefaultValues();
-        try {
-            gridManager.insertBombs(noOfBombs);
-        } catch (BombsMaxLimitException e) {
-            throw new RuntimeException(e);
+        int maxBombs = (int) (0.35 * gridSize * gridSize);
+        System.out.println("Enter the number of mines to place on the grid (maximum is 35% of the total squares):");
+        int noOfBombs;
+        while (true) {
+            if (scanner.hasNextInt()) {
+                noOfBombs = scanner.nextInt();
+                if (noOfBombs > 0 && noOfBombs <= maxBombs) {
+                    break;
+                } else {
+                    System.out.println("Validation failed. Number of mines must be between 1 and " + maxBombs + ":");
+                    System.out.println("Enter the number of mines to place on the grid (maximum is 35% of the total squares):");
+                }
+            } else {
+                System.out.println("Validation failed. Number of mines must be between 1 and " + maxBombs + ":");
+                System.out.println("Enter the number of mines to place on the grid (maximum is 35% of the total squares):");
+                scanner.next();
+            }
         }
+        gridManager.insertBombs(noOfBombs);
         gridManager.insertAdjacentBombCount();
         System.out.println("Here is your minefield:");
         gridManager.printGrid();
@@ -38,15 +63,16 @@ public class MineSweeper {
             String selectedCell = scanner.next();
             if(!validateCellId(selectedCell, gridSize)){
                 System.out.println("Invalid Cell ID " + selectedCell + "Select a square to reveal (e.g. A1): D4");
+            } else {
+                int x = selectedCell.charAt(0) - 'A';
+                int y = Integer.parseInt(selectedCell.substring(1)) - 1;
+                result = gridManager.updateGridCell(x, y);
+                if(result  == -1){
+                    return result;
+                }
+                System.out.println("Here is your updated minefield:");
+                gridManager.printGrid();
             }
-            int x = selectedCell.charAt(0) - 'A';
-            int y = Integer.parseInt(selectedCell.substring(1)) - 1;
-            result = gridManager.updateGridCell(x, y);
-            if(result  == -1){
-                return result;
-            }
-            System.out.println("Here is your updated minefield:");
-            gridManager.printGrid();
         }
         return result;
     }

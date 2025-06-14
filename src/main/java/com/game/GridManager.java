@@ -20,9 +20,9 @@ public class GridManager {
         }
     }
 
-    public void insertBombs(int noOfBombs) throws BombsMaxLimitException {
-        if (noOfBombs > gridSize * gridSize * 0.35)
-            throw new BombsMaxLimitException("maximum is 35% of the total squares");
+    public void insertBombs(int noOfBombs) {
+//        if (noOfBombs > gridSize * gridSize * 0.35)
+//            throw new BombsMaxLimitException("maximum is 35% of the total squares");
         UniqueRandomPair u = new UniqueRandomPair();
         Set<UniqueRandomPair.Pair> bombCells = u.generatePair(gridSize, noOfBombs);
         for (UniqueRandomPair.Pair pair : bombCells) {
